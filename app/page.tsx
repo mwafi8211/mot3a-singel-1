@@ -397,7 +397,7 @@ export default function Home() {
               )}
 
               <div style={{ display: "flex", justifyContent: "center", marginTop: 16 }}>
-                <a href="/" className="btn-secondary">تصفح المتجر الرئيسي</a>
+                <a href="https://mot3a.vercel.app/" className="store-link">🏠 تصفح الموقع الرئيسي</a>
               </div>
 
               <div className="cta-row">
