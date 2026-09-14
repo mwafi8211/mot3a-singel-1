@@ -397,7 +397,7 @@ export default function Home() {
               )}
 
               <div style={{ display: "flex", justifyContent: "center", marginTop: 16 }}>
-                <a href="/" className="store-link">🏠 تصفح الموقع الرئيسي</a>
+                <a href="/" className="btn-secondary">تصفح المتجر الرئيسي</a>
               </div>
 
               <div className="cta-row">
@@ -427,7 +427,7 @@ export default function Home() {
               <div><span>الإجمالي</span><span style={{ color: "var(--gold1)", fontWeight: 900 }}>{orderDetails.total} ج.م</span></div>
             </div>
             <div className="cta-row" style={{ marginTop: 18 }}>
-              <a href="/" className="btn-secondary">تصفح المتجر الرئيسي</a>
+              <a href="https://mot3a.vercel.app/" className="btn-secondary">تصفح المتجر الرئيسي</a>
               <button className="btn btn-main" onClick={() => setShowSuccess(false)}>تمام</button>
             </div>
           </div>
