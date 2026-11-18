@@ -51,8 +51,8 @@ img{max-width:100%;display:block;}
   font-weight:900;font-size:clamp(.8rem,3.2vw,.92rem);
   overflow:hidden;white-space:nowrap;
 }
-.marquee-track{display:inline-flex;gap:3rem;padding-inline-start:3rem;animation:marquee 24s linear infinite;will-change:transform;}
-.marquee-track span{letter-spacing:.3px;}
+.marquee-track{display:flex;width:max-content;gap:3rem;padding-inline-start:3rem;animation:marquee 30s linear infinite;will-change:transform;}
+.marquee-track span{letter-spacing:.3px;flex-shrink:0;}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 header{

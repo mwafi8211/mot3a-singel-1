@@ -68,6 +68,9 @@ export default function Home() {
   }, []);
 
   const total = Math.max(0, product.price - discountApplied + SHIPPING);
+  const discountPct = product.oldPrice > 0
+    ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
+    : 0;
 
   function applyDiscount() {
     const code = discCode.trim().toUpperCase();
@@ -200,8 +203,8 @@ export default function Home() {
     <>
       <div className="announce">
         <div className="marquee-track">
-          <span>شحن سري وآمن ومجاني ✦ الدفع عند الاستلام ✦ تغليف سري وخاص ✦ خصم 32% اليوم فقط ✦ معاينة قبل الاستلام</span>
-          <span>شحن سري وآمن ومجاني ✦ الدفع عند الاستلام ✦ تغليف سري وخاص ✦ خصم 32% اليوم فقط ✦ معاينة قبل الاستلام</span>
+          <span>شحن سري وآمن ومجاني ✦ الدفع عند الاستلام ✦ تغليف سري وخاص ✦خصم {discountPct}% اليوم فقط✦ معاينة قبل الاستلام</span>
+          <span>شحن سري وآمن ومجاني ✦ الدفع عند الاستلام ✦ تغليف سري وخاص ✦ خصم {discountPct}% اليوم فقط ✦ معاينة قبل الاستلام</span>
         </div>
       </div>
 
@@ -222,7 +225,7 @@ export default function Home() {
             <div className="gallery">
               <div className="gallery-main">
                 <img src={activeMedia.src} alt={activeMedia.label} />
-                <div className="badge-sale">خصم 32%</div>
+                <div className="badge-sale">خصم {discountPct}%</div>
               </div>
               <div className="thumbs">
                 {product.images.map((src, i) => (
