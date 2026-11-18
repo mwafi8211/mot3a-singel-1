@@ -473,7 +473,7 @@ export default function Home() {
       )}
 
       <footer>
-        <div>Crazy Love © {new Date().getFullYear()} — جميع الحقوق محفوظة</div>
+        <div>Mot3a © {new Date().getFullYear()} — جميع الحقوق محفوظة</div>
         <div className="foot-icons">💜 💛 💜</div>
       </footer>
 
