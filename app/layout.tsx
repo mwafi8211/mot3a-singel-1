@@ -9,8 +9,8 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "Crazy Love | جهاز التدليك الذكي للمتزوجين",
-  description: "جهاز التدليك الذكي للمتزوجين من Crazy Love - خصوصية تامة وتغليف سري وشحن مجاني مع الدفع عند الاستلام",
+  title: "عرض اليوم ولفتره محوده | Mot3a",
+  description: "عروض اليوم  من Mot3a - خصوصية تامة وتغليف سري وشحن مجاني مع الدفع عند الاستلام",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
