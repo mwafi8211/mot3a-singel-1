@@ -38,6 +38,7 @@ const FALLBACK: ProductData = {
 export default function Home() {
   const [product, setProduct] = useState<ProductData>(FALLBACK);
   const [loadingProduct, setLoadingProduct] = useState(true);
+  const [closed, setClosed] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [discCode, setDiscCode] = useState("");
   const [discountApplied, setDiscountApplied] = useState(0);
@@ -53,7 +54,10 @@ export default function Home() {
   useEffect(() => {
     const url = process.env.NEXT_PUBLIC_ADMIN_API_URL + "/api/single-product";
     fetch(url)
-      .then((res) => (res.ok ? res.json() : null))
+      .then((res) => {
+        if (res.status === 404) setClosed(true);
+        return res.ok ? res.json() : null;
+      })
       .then((json) => {
         if (json?.product) setProduct(json.product);
       })
@@ -157,6 +161,40 @@ export default function Home() {
   const activeMedia = product.images[activeIndex]
     ? { src: product.images[activeIndex], label: product.titleAr }
     : { src: "/images/product-main.jpeg", label: product.titleAr };
+
+  if (closed) {
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          background: "#000",
+          color: "#fff",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 20,
+          padding: 20,
+          textAlign: "center",
+        }}
+      >
+        <h1 style={{ fontSize: 24 }}>هذه الصفحة غير متاحة حالياً</h1>
+        <a
+          href="https://mot3a.vercel.app/"
+          style={{
+            background: "#fff",
+            color: "#000",
+            padding: "12px 24px",
+            borderRadius: 8,
+            textDecoration: "none",
+            fontWeight: 700,
+          }}
+        >
+          انتقل إلى الموقع الرئيسي
+        </a>
+      </div>
+    );
+  }
 
   return (
     <>
